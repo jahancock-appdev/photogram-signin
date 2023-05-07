@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     user = User.where({ :username => un}).at(0)
     #if there's no record redirect back to sign in form
     if user == nil
-      redirect_to("/user_sign in", { :alert => "No one by that name 'round these parts"})
+      redirect_to("/user_sign_in", { :alert => "No one by that name 'round these parts"})
       #if there is a record, check password
     else 
       if user.authenticate(pw)
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         redirect_to("/", {:notice => "Welcome back, " + user.username + "!"})
       else
         #if not, redirect back to sign in form
-        redirect_to("/user_sign in", { :alert => "Nice try, sucker!"})
+        redirect_to("/user_sign_in", { :alert => "Nice try, sucker!"})
       end
     end
     
