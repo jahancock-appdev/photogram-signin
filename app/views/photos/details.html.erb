@@ -20,7 +20,7 @@
   <dd>
     2 months ago
   </dd>
-  <% if session.fetch(:user_id) %>
+  <% if session.fetch(:user_id) == @photo.poster.id %>
   <dt>Edit photo</dt>
   <dd>
     <form action="/update_photo/<%= @photo.id %>">
